@@ -1,0 +1,9 @@
+.movie-list {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.movie-list li {
+    list-style-type: none;
+}

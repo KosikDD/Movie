@@ -1,0 +1,81 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 183px auto;
+  height: 281px;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.card-info {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100%;
+  gap: 7px;
+  padding: 12px 20px 40px 20px;
+}
+
+.label {
+  padding-right: 40px;
+  color: #000000;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.release-date {
+  color: #827e7e;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+.genres-list {
+  display: flex;
+}
+
+.genres-list li {
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  padding: 2px 5px 1px 5px;
+}
+
+.genres-item {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.overview {
+  text-align-last: left;
+  white-space: pre-wrap;
+  font-size: 12px;
+  line-height: 22px;
+  color: #000000;
+  height: 129px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ant-rate {
+  bottom: 15px;
+  position: absolute;
+  width: 250px;
+}
+
+.ant-rate-star {
+  margin-inline-end: 3px !important;
+}
+
+.ant-spin {
+  position: absolute;
+  top: 40%;
+  left: 49%;
+}

@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'InterUI';
+  src: url('./fonts/Inter-UI-Regular.otf') format('opentype');
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: 'InterUI';
+  display: flex;
+  justify-content: center;
+}

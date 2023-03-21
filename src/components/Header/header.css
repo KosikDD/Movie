@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-input {
+  width: 939px;
+  margin-bottom: 10px;
+}
+
+.ant-menu {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 10px;
+}
+
+.ant-menu-item {
+  padding: 0 8px 10px 8px;
+}
+
+.header ul {
+    text-align: center;
+    width: fit-content;
+}
