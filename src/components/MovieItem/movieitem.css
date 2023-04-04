@@ -108,28 +108,28 @@
 .good {
   width: 30px;
   height: 30px;
-  border: 2px solid #E9D100;
+  border: 2px solid #e9d100;
   border-radius: 50%;
 }
 
 .awesome {
   width: 30px;
   height: 30px;
-  border: 2px solid #66E900;
+  border: 2px solid #66e900;
   border-radius: 50%;
 }
 
 .ok {
   width: 30px;
   height: 30px;
-  border: 2px solid #E97E00;
+  border: 2px solid #e97e00;
   border-radius: 50%;
 }
 
 .bad {
   width: 30px;
   height: 30px;
-  border: 2px solid #E90000;
+  border: 2px solid #e90000;
   border-radius: 50%;
 }
 
