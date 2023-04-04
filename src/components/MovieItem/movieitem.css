@@ -1,6 +1,7 @@
 .card {
   position: relative;
   display: grid;
+  max-width: 454px;
   grid-template-columns: 183px auto;
   height: 281px;
   background-color: #fff;
@@ -38,6 +39,9 @@
 
 .genres-list {
   display: flex;
+  gap: 5px;
+  overflow: visible;
+  flex-wrap: wrap;
 }
 
 .genres-list li {
@@ -55,13 +59,11 @@
 
 .overview {
   text-align-last: left;
-  white-space: pre-wrap;
   font-size: 12px;
   line-height: 22px;
   color: #000000;
-  height: 129px;
+  height: auto;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .ant-rate {
@@ -78,4 +80,100 @@
   position: absolute;
   top: 40%;
   left: 49%;
+}
+
+.card-image {
+  position: relative;
+}
+
+.card-rating {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+}
+
+.card-rating div {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.card-rating span {
+  padding-left: 0.3em;
+  font-size: 13px;
+}
+
+.good {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #E9D100;
+  border-radius: 50%;
+}
+
+.awesome {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #66E900;
+  border-radius: 50%;
+}
+
+.ok {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #E97E00;
+  border-radius: 50%;
+}
+
+.bad {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #E90000;
+  border-radius: 50%;
+}
+
+@media (max-width: 1010px) {
+  .card {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .card {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: auto;
+    height: 245px;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 6px 10px;
+  }
+  .card-img {
+    width: 85px;
+    height: 123px;
+  }
+  .card-info {
+    position: static;
+    padding: 0 10px 30px 13px;
+  }
+  .overview {
+    position: absolute;
+    text-align-last: left;
+    font-size: 12px;
+    line-height: 22px;
+    padding-right: 15px;
+    color: #000000;
+    height: 70px;
+    bottom: 30px;
+    left: 10px;
+  }
+  .ant-rate {
+    bottom: 10px;
+    right: -10px;
+    position: absolute;
+    width: 250px;
+  }
 }

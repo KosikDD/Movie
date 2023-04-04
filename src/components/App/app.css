@@ -1,8 +1,9 @@
 .movieapp {
   background-color: #fff;
-  height: 100vh;
   width: 1010px;
+  height: 100%;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   padding: 20px 36px 10px 36px;
 }
@@ -13,9 +14,21 @@
 
 .main {
   padding-top: 22px;
-  height: 100vh;
-  width: 938px;
+  height: 100%;
+  max-width: 938px;
   overflow-y: scroll;
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
+}
+
+@media (max-width: 1010px) {
+  .movieapp {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 680px) {
+  .movieapp {
+    padding: 20px 16px 10px 16px;
+  }
 }

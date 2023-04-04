@@ -1,9 +1,29 @@
 .movie-list {
-    display: grid;
-    gap: 32px;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 5px 10px 3px;
 }
 
 .movie-list li {
-    list-style-type: none;
+  list-style-type: none;
+}
+
+.on-error {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (max-width: 1010px) {
+  .movie-list {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  .movie-list li {
+    align-self: center;
+  }
 }
