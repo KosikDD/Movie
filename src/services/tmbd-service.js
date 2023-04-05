@@ -1,5 +1,5 @@
 export default class TheMoviedb {
-  _apiBase = 'https://api.themoviedb.org/3/';
+  _apiBase = '//api.themoviedb.org/3/';
   _apiKey = '?api_key=616954cad9058194dbece5c19cab957a';
 
   constructor() {
@@ -54,7 +54,7 @@ export default class TheMoviedb {
   }
 
   async getGenres() {
-    const url = `https://api.themoviedb.org/3/genre/movie/list${this._apiKey}`;
+    const url = `//api.themoviedb.org/3/genre/movie/list${this._apiKey}`;
     try {
       const data = await fetch(url);
       if (!data.ok) {

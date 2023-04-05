@@ -90,10 +90,6 @@ export default class App extends Component {
         })
         .catch(this.onError);
     } else {
-      this.setState(() => {
-        return { page: 1 };
-      });
-      this.TheMoviedb.page = e;
       if (this.state.search === '') {
         this.getMovies();
       } else {
@@ -111,6 +107,10 @@ export default class App extends Component {
         })
         .catch(this.onError);
     } else {
+      this.setState(() => {
+        return { page: 1 };
+      });
+      this.TheMoviedb.page = 1;
       window.scrollTo(0, 0);
       if (this.state.search === '') {
         this.getMovies();

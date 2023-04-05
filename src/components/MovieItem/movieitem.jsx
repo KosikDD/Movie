@@ -44,11 +44,11 @@ const ItemView = ({ movies, rateMovie, rating }) => {
   };
   const [imgLoad, setImgLoad] = useState(false);
   const { genres } = useContext(GenresContext);
-  const _poster_path_api = 'https://image.tmdb.org/t/p/w500/';
+  const _poster_path_api = '//image.tmdb.org/t/p/w500/';
   let path = '';
 
   if (poster_path === null) {
-    path = 'https://dom-dekor.ru/images/not-photo.png.webp';
+    path = '//dom-dekor.ru/images/not-photo.png.webp';
   } else {
     path = _poster_path_api + poster_path;
   }
@@ -61,7 +61,7 @@ const ItemView = ({ movies, rateMovie, rating }) => {
     };
   }
 
-  const showImg = imgLoad ? <img className="card-img" src={path} alt="poster" /> : <Spin size="large" />;
+  const showImg = imgLoad ? <img className="card-img" src={path} alt="poster" loading="lazy" /> : <Spin size="large" />;
 
   const date = new Date(release_date);
 
