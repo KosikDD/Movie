@@ -11,7 +11,7 @@ export default class App extends Component {
   TheMoviedb = new TheMoviedb();
 
   state = {
-    movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
+    movies: [],
     loading: true,
     error: false,
     errortype: '',
