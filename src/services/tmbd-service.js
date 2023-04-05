@@ -46,7 +46,7 @@ export default class TheMoviedb {
   }
 
   async getPopularMovies() {
-    const res = await this.getStarted('movie/popular/');
+    const res = await this.getStarted('movie/upcoming');
     return res;
   }
 
@@ -95,7 +95,7 @@ export default class TheMoviedb {
     this.sessionID = localStorage.getItem('guest_session_id');
 
     const url = `guest_session/${this.sessionID}/rated/movies${this._apiKey}&page=${page}`;
-    const res = await fetch(`${this._apiBase + url + this._apiKey + `&page=${page}`}`);
+    const res = await fetch(`${this._apiBase + url}`);
 
     if (!res.ok) {
       throw new Error(`Could't fetch ${url}` + `, received ${res.status}`);

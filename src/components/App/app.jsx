@@ -11,7 +11,7 @@ export default class App extends Component {
   TheMoviedb = new TheMoviedb();
 
   state = {
-    movies: [],
+    movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
     loading: true,
     error: false,
     errortype: '',
@@ -121,6 +121,7 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
+    console.log(1);
     await this.TheMoviedb.createSessionID();
     await this.TheMoviedb.getRatedMovies(this.state.page)
       .then((body) => {
