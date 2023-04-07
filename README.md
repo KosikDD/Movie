@@ -1,1 +1,1 @@
-[[MovieApp React]](https://movie-swd1-n2ph2x5or-kosikdd.vercel.app/)
+[MovieApp React](https://movie-swd1-iwrb5paia-kosikdd.vercel.app/)
