@@ -89,10 +89,10 @@ export default class TheMoviedb {
     }
   }
 
-  async getRatedMovies() {
+  async getRatedMovies(page) {
     this.sessionID = localStorage.getItem('guest_session_id');
 
-    const url = `guest_session/${this.sessionID}/rated/movies${this._apiKey}&page=${this.page}`;
+    const url = `guest_session/${this.sessionID}/rated/movies${this._apiKey}&page=${page}`;
     const res = await fetch(`${this._apiBase + url}`);
 
     if (!res.ok) {
