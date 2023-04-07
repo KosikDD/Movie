@@ -7,16 +7,13 @@ import { GenresContext } from '../Context';
 export default class MovieItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { rating: this.props.rating };
   }
 
   render() {
-    const { movies, loading, rateMovie } = this.props;
+    const { movies, loading, rateMovie, rating } = this.props;
     const spinner = loading ? <Spin size="large" /> : null;
 
-    const content = !loading ? (
-      <ItemView movies={movies} rateMovie={rateMovie} rating={this.state.rating}></ItemView>
-    ) : null;
+    const content = !loading ? <ItemView movies={movies} rateMovie={rateMovie} rating={rating}></ItemView> : null;
 
     return (
       <li>

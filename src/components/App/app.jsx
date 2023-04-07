@@ -65,6 +65,19 @@ export default class App extends Component {
       .catch(this.onError);
   }
 
+  getRatedMovies(page) {
+    this.TheMoviedb.getRatedMovies(page)
+      .then((body) => {
+        if (this.state.tab === 'rated') {
+          this.onLoadRatedMovies(body);
+          this.onLoadMovies(body);
+        } else {
+          this.onLoadRatedMovies(body);
+        }
+      })
+      .catch(this.onError);
+  }
+
   searchMovie(query) {
     this.TheMoviedb.searchMovies(query)
       .then((movies) => {
@@ -83,12 +96,7 @@ export default class App extends Component {
     window.scrollTo(0, 0);
     this.TheMoviedb.page = e;
     if (this.state.tab === 'rated') {
-      this.TheMoviedb.getRatedMovies(e)
-        .then((body) => {
-          this.onLoadRatedMovies(body);
-          this.onLoadMovies(body);
-        })
-        .catch(this.onError);
+      this.getRatedMovies(e);
     } else {
       if (this.state.search === '') {
         this.getMovies();
@@ -99,18 +107,15 @@ export default class App extends Component {
   };
 
   onTab = (tab) => {
-    this.setState({ tab: 'rated' });
+    this.setState({ tab: tab });
     if (tab === 'rated') {
-      this.TheMoviedb.getRatedMovies(this.state.page)
-        .then((body) => {
-          this.onLoadMovies(body);
-        })
-        .catch(this.onError);
+      this.getRatedMovies(1);
     } else {
       this.setState(() => {
         return { page: 1 };
       });
       this.TheMoviedb.page = 1;
+      this.getRatedMovies(this.state.page);
       window.scrollTo(0, 0);
       if (this.state.search === '') {
         this.getMovies();
@@ -121,15 +126,9 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
-    console.log(1);
     await this.TheMoviedb.createSessionID();
-    await this.TheMoviedb.getRatedMovies(this.state.page)
-      .then((body) => {
-        this.onLoadRatedMovies(body);
-      })
-      .catch(this.onError);
+    await this.getRatedMovies(this.state.page);
     this.getMovies();
-
     this.TheMoviedb.getGenres()
       .then((data) => this.setState({ genres: data }))
       .catch((err) => err.message);
@@ -156,7 +155,7 @@ export default class App extends Component {
       }
     }, 700);
 
-    const { movies, loading, error, errortype, totalmovies, genres, ratedmovies } = this.state;
+    const { movies, loading, error, errortype, totalmovies, genres, ratedmovies, tab } = this.state;
 
     return (
       <section className="movieapp">
@@ -169,6 +168,7 @@ export default class App extends Component {
               loading={loading}
               error={error}
               errortype={errortype}
+              tab={tab}
               onrate={(id, stars) => {
                 this.TheMoviedb.postRatedMovies(id, stars);
               }}

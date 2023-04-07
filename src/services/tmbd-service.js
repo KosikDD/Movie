@@ -9,7 +9,7 @@ export default class TheMoviedb {
 
   async getStarted(url) {
     try {
-      const res = await fetch(`${'https://api.themoviedb.org/3/' + url + this._apiKey + `&page=${this.page}`}`);
+      const res = await fetch(this._apiBase + url + this._apiKey + `&page=${this.page}`);
 
       if (!res.ok) {
         throw new Error(`Could't fetch ${url}` + `, received ${res.status}`);
@@ -27,9 +27,7 @@ export default class TheMoviedb {
 
   async getResourse(url, query) {
     try {
-      const res = await fetch(
-        `${'https://api.themoviedb.org/3/' + url + this._apiKey + `&query=${query}` + `&page=${this.page}`}`
-      );
+      const res = await fetch(this._apiBase + url + this._apiKey + `&query=${query}` + `&page=${this.page}`);
 
       if (!res.ok) {
         throw new Error(`Could't fetch ${url}` + `, received ${res.status}`);
@@ -56,7 +54,7 @@ export default class TheMoviedb {
   }
 
   async getGenres() {
-    const url = `https://api.themoviedb.org/3/genre/movie/list${this._apiKey}`;
+    const url = `${this._apiBase}genre/movie/list${this._apiKey}`;
     try {
       const data = await fetch(url);
       if (!data.ok) {
@@ -91,10 +89,10 @@ export default class TheMoviedb {
     }
   }
 
-  async getRatedMovies(page) {
+  async getRatedMovies() {
     this.sessionID = localStorage.getItem('guest_session_id');
 
-    const url = `guest_session/${this.sessionID}/rated/movies${this._apiKey}&page=${page}`;
+    const url = `guest_session/${this.sessionID}/rated/movies${this._apiKey}&page=${this.page}`;
     const res = await fetch(`${this._apiBase + url}`);
 
     if (!res.ok) {
