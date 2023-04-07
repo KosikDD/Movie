@@ -17,7 +17,7 @@ export default class Footer extends Component {
     } else {
       return (
         <Pagination
-          defaultCurrent={1}
+          defaultCurrent={this.props.currentPage}
           total={total}
           defaultPageSize={20}
           pageSizeOptions={[20]}

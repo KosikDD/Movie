@@ -108,14 +108,14 @@ export default class App extends Component {
 
   onTab = (tab) => {
     this.setState({ tab: tab });
+    this.setState(() => {
+      return { page: 1 };
+    });
     if (tab === 'rated') {
       this.getRatedMovies(1);
     } else {
-      this.setState(() => {
-        return { page: 1 };
-      });
+      this.getRatedMovies(1);
       this.TheMoviedb.page = 1;
-      this.getRatedMovies(this.state.page);
       window.scrollTo(0, 0);
       if (this.state.search === '') {
         this.getMovies();
