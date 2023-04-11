@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { debounce } from 'lodash';
 
 import TheMoviedb from '../../services/tmbd-service';
+import Sessiondb from '../../services/session';
 import './app.css';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -9,6 +10,7 @@ import MovieList from '../MovieList';
 import { GenresContext } from '../Context';
 export default class App extends Component {
   TheMoviedb = new TheMoviedb();
+  Sessindb = new Sessiondb();
 
   state = {
     movies: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }],
@@ -66,7 +68,7 @@ export default class App extends Component {
   }
 
   getRatedMovies(page) {
-    this.TheMoviedb.getRatedMovies(page)
+    this.Sessindb.getRatedMovies(page)
       .then((body) => {
         if (this.state.tab === 'rated') {
           this.onLoadRatedMovies(body);
@@ -95,6 +97,7 @@ export default class App extends Component {
     });
     window.scrollTo(0, 0);
     this.TheMoviedb.page = e;
+    this.Sessindb.page = e;
     if (this.state.tab === 'rated') {
       this.getRatedMovies(e);
     } else {
@@ -116,6 +119,7 @@ export default class App extends Component {
     } else {
       this.getRatedMovies(1);
       this.TheMoviedb.page = 1;
+      this.Sessindb.page = 1;
       window.scrollTo(0, 0);
       if (this.state.search === '') {
         this.getMovies();
@@ -126,7 +130,7 @@ export default class App extends Component {
   };
 
   async componentDidMount() {
-    await this.TheMoviedb.createSessionID();
+    await this.Sessindb.createSessionID();
     await this.getRatedMovies(this.state.page);
     this.getMovies();
     this.TheMoviedb.getGenres()
@@ -170,7 +174,7 @@ export default class App extends Component {
               errortype={errortype}
               tab={tab}
               onrate={(id, stars) => {
-                this.TheMoviedb.postRatedMovies(id, stars);
+                this.Sessindb.postRatedMovies(id, stars);
               }}
             />
           </section>
